@@ -1,0 +1,33 @@
+{
+  "name": "lifegame-server",
+  "version": "1.0.0",
+  "description": "LifeGame Api server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec ts-node src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seohayeon/LifeGame.git"
+  },
+  "keywords": [
+    "kakaobot"
+  ],
+  "author": "seohayeon",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/seohayeon/LifeGame/issues"
+  },
+  "homepage": "https://github.com/seohayeon/LifeGame#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  },
+  "dependencies": {
+    "@types/mongoose": "^5.11.97",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.5"
+  }
+}
