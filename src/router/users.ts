@@ -15,9 +15,9 @@ router.get("/save", (req: Request, res: Response, next: NextFunction) => {
     
     const data = new User({
         hash: 668429,
-        username: "simi",
+        username: "",
         email: "hyseo0208@gmail.com",
-        password: "tjgkdus0207*",
+        password: "tj07*",
         date: new Date()
     })
     
