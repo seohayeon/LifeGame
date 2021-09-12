@@ -1,12 +1,18 @@
 import express, { Request, Response, NextFunction } from "express";
 import userRouter from "./router/users";
 import db from './models/index'
+import * as bodyParser from 'body-parser';
 db();
+
 const app = express();
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  }),
+);
+
 const port:number = 8080
-app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("hello");
-});
 
 app.use("/users", userRouter);
 

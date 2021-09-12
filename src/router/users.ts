@@ -1,28 +1,28 @@
 import express, { Request, Response, NextFunction } from "express";
 import User from '../models/users';
+import GameUser from '../models/game/user';
 
 const router = express.Router();
 
-router.get("/", (req: Request, res: Response, next: NextFunction) => {
+router.post("/sign_up", (req: Request, res: Response, next: NextFunction) => {
     
-  User.find({ username: 'simi' }, (err, user) => {
-    res.send(user);
-  });
-  
-});
-
-router.get("/save", (req: Request, res: Response, next: NextFunction) => {
-    
-    const data = new User({
-        hash: 668429,
-        username: "simi",
-        email: "hyseo0208@gmail.com",
-        password: "tjgkdus0207*",
+  let body = req.body
+  console.log(body)
+  const data = new User({
+        hash: body.hash,
+        username: body.name,
+        email: body.email,
+        password: body.password,
         date: new Date()
     })
     
-    data.save()
+  const data2 = new GameUser({
+      name:body.name
+  })
+    
+  data.save()
     .then((result) => {
+      data2.save()
       res.json(result);
     })
     .catch((err) => {
@@ -31,5 +31,7 @@ router.get("/save", (req: Request, res: Response, next: NextFunction) => {
     })
   
 });
+
+
 
 export default router;
