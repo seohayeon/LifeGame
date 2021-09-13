@@ -12,7 +12,7 @@ app.use(
   }),
 );
 
-const port:number = 8080
+const port:number = 3000
 
 app.use("/users", userRouter);
 

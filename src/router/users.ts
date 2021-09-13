@@ -32,6 +32,16 @@ router.post("/sign_up", (req: Request, res: Response, next: NextFunction) => {
   
 });
 
+router.post("/getUserInfo", async (req: Request, res: Response, next: NextFunction) => {
+    let body = req.body
+    
+    let userInfo = await GameUser.findOne({name:body.name})
+    if(userInfo) res.send(userInfo)
+    else res.send("no user")
+  
+});
+
+
 
 
 export default router;
