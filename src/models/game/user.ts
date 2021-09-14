@@ -10,6 +10,7 @@ export interface IUser extends Document {
     money?: number;
     house?: object;
     location?: string;
+    state?: number;
     fishingRod?: object;
     pickaxe?: object;
     ax?: object;
@@ -58,7 +59,11 @@ export const UserSchema = new Schema({
     },
     location:{
         type:String,
-        default:"집"
+        default:"집"//집,낚시터,광산,농장
+    },
+    state:{
+        type:Number,
+        default:0 //0:아무것도 안함,1:낚시중,2:광물 캐는중,3농장에서 일하는중 ,4:회복중
     },
     fishingRod:{
         name:{
